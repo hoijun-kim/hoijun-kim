@@ -16,10 +16,10 @@ import math, random, io, os
 HERE = os.path.dirname(os.path.abspath(__file__))
 ASSETS = os.path.join(HERE, "..", "assets")
 
-# ---- palette (shared) ----
-C1, C2, C3, C4 = "#2ff0c4", "#5df08a", "#41cfe0", "#7aa2ff"   # cyan / green / teal / pose-blue
-PT_C, AMBER = "#3fe8b4", "#f2b45c"
-DIM, BRIGHT, LABEL, RED = "#4f9e8b", "#a8ffe6", "#3f8f7c", "#ff6b6b"
+# ---- palette (shared) : cool blue instrument, one warm accent ----
+C1, C2, C3, C4 = "#4d9fff", "#34c8f2", "#9d8cff", "#6f92cf"   # azure / cyan-blue / violet / steel(pose)
+PT_C, AMBER = "#48b4ff", "#f2b45c"                             # blue / warm accent (actuator, INT8)
+DIM, BRIGHT, LABEL, RED = "#6f8fc0", "#d8e8ff", "#4d6a99", "#ff6b6b"
 
 
 # ============================ waveform generators ============================
@@ -108,31 +108,31 @@ def build_hero():
       'forearm EMG channels (FDS, EDC, APB) and one video pose channel - with a sweeping scan bar and a '
       'prosthetic gripper that flexes in response, representing muscle signals decoded into motion.</desc>\n')
     W('<defs>\n')
-    W('<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#06130f"/>'
-      '<stop offset="0.55" stop-color="#081a15"/><stop offset="1" stop-color="#040d0b"/></linearGradient>\n')
-    W('<radialGradient id="crt" cx="0.5" cy="0.44" r="0.75"><stop offset="0" stop-color="#0f342b" stop-opacity="0.35"/>'
-      '<stop offset="0.7" stop-color="#06130f" stop-opacity="0.05"/>'
-      '<stop offset="1" stop-color="#01100c" stop-opacity="0.85"/></radialGradient>\n')
-    W('<linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#39f5cb" stop-opacity="0"/>'
-      '<stop offset="0.78" stop-color="#39f5cb" stop-opacity="0.06"/>'
-      '<stop offset="1" stop-color="#c4fff0" stop-opacity="0.30"/></linearGradient>\n')
+    W('<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#080f1e"/>'
+      '<stop offset="0.55" stop-color="#0b1526"/><stop offset="1" stop-color="#05080f"/></linearGradient>\n')
+    W('<radialGradient id="crt" cx="0.5" cy="0.44" r="0.75"><stop offset="0" stop-color="#12345c" stop-opacity="0.35"/>'
+      '<stop offset="0.7" stop-color="#080f1e" stop-opacity="0.05"/>'
+      '<stop offset="1" stop-color="#03060f" stop-opacity="0.85"/></radialGradient>\n')
+    W('<linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4da3ff" stop-opacity="0"/>'
+      '<stop offset="0.78" stop-color="#4da3ff" stop-opacity="0.06"/>'
+      '<stop offset="1" stop-color="#cfe4ff" stop-opacity="0.30"/></linearGradient>\n')
     W('<filter id="glow" x="-8%" y="-45%" width="116%" height="190%"><feGaussianBlur stdDeviation="1.35" result="b"/>'
       '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>\n')
     W('<pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">'
-      '<path d="M26 0H0V26" fill="none" stroke="#12463b" stroke-width="0.6" opacity="0.5"/></pattern>\n')
+      '<path d="M26 0H0V26" fill="none" stroke="#183a63" stroke-width="0.6" opacity="0.5"/></pattern>\n')
     W('<clipPath id="screen"><rect x="22" y="98" width="1556" height="304" rx="7"/></clipPath>\n')
-    W('<clipPath id="namewipe"><rect x="34" y="20" width="0" height="46">'
+    W('<clipPath id="namewipe"><rect x="34" y="28" width="0" height="58">'
       f'<animate attributeName="width" values="0;640;640;640" keyTimes="0;0.34;0.94;1" dur="{T}" '
       'repeatCount="indefinite" calcMode="spline" keySplines="0.2 0.7 0.2 1;0 0 1 1;0 0 1 1"/></rect></clipPath>\n')
     W('</defs>\n')
-    W('<rect x="0" y="0" width="1600" height="430" rx="18" fill="#020908"/>\n')
-    W('<rect x="5" y="5" width="1590" height="420" rx="15" fill="url(#bg)" stroke="#13564a" stroke-width="1.3"/>\n')
+    W('<rect x="0" y="0" width="1600" height="430" rx="18" fill="#03060d"/>\n')
+    W('<rect x="5" y="5" width="1590" height="420" rx="15" fill="url(#bg)" stroke="#1c4066" stroke-width="1.3"/>\n')
     W('<g clip-path="url(#namewipe)">')
-    W('<text x="36" y="54" font-size="30" font-weight="700" letter-spacing="1.5" fill="%s" filter="url(#glow)">'
-      'HOIJUN KIM<tspan fill="%s" font-size="21" font-weight="400"> / 김회준</tspan></text>' % (BRIGHT, DIM))
+    W('<text x="36" y="55" font-size="23" font-weight="700" letter-spacing="1" fill="%s" filter="url(#glow)">'
+      'biosignal ML researcher</text>' % BRIGHT)
+    W('<text x="37" y="78" font-size="12.5" letter-spacing="0.5" fill="%s">'
+      'decoding muscle signals into motion  /  근육 신호를 동작으로</text>' % DIM)
     W('</g>\n')
-    W('<text x="37" y="78" font-size="13" letter-spacing="0.5" fill="%s">'
-      'biosignal ML researcher  /  decoding muscle signals into motion</text>\n' % DIM)
     W('<text x="1498" y="39" font-size="13" font-weight="700" letter-spacing="1.5" fill="%s">REC</text>' % RED)
     W('<circle cx="1552" cy="34.5" r="4.5" fill="%s"><animate attributeName="opacity" '
       'values="1;1;0.12;0.12;1" keyTimes="0;0.45;0.5;0.55;1" dur="1.6s" repeatCount="indefinite"/></circle>\n' % RED)
@@ -141,13 +141,13 @@ def build_hero():
     W('<text x="1560" y="80" font-size="12" letter-spacing="1" fill="%s">inference '
       '<tspan fill="%s" font-weight="700">LIVE</tspan></text>' % (LABEL, C2))
     W('</g>\n')
-    W('<rect x="22" y="98" width="1556" height="304" rx="7" fill="#03130f"/>\n')
+    W('<rect x="22" y="98" width="1556" height="304" rx="7" fill="#060e1d"/>\n')
     W('<g clip-path="url(#screen)">\n')
     W('  <rect x="22" y="98" width="1556" height="304" fill="url(#grid)"/>\n')
     for d, cy, col, code, mus, kind, val, pid in CH:
-        W('  <line x1="90" y1="%d" x2="1440" y2="%d" stroke="#1c6d5b" stroke-width="0.7" '
+        W('  <line x1="90" y1="%d" x2="1440" y2="%d" stroke="#26497a" stroke-width="0.7" '
           'stroke-dasharray="2 5" opacity="0.6"/>\n' % (cy, cy))
-    W('  <rect x="22" y="0" width="1556" height="34" fill="#8affe0" opacity="0.035">'
+    W('  <rect x="22" y="0" width="1556" height="34" fill="#a9ccff" opacity="0.035">'
       '<animateTransform attributeName="transform" type="translate" values="0,90;0,410;0,90" '
       'dur="7s" repeatCount="indefinite"/></rect>\n')
     for d, cy, col, code, mus, kind, val, pid in CH:
@@ -155,23 +155,23 @@ def build_hero():
           'stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" filter="url(#glow)">'
           '<animate attributeName="stroke-dashoffset" values="1;0" dur="%s" repeatCount="indefinite" '
           'calcMode="linear"/></path>\n' % (pid, d, col, T))
-        W('  <circle r="2.7" fill="#eafff9" filter="url(#glow)">'
+        W('  <circle r="2.7" fill="#eaf3ff" filter="url(#glow)">'
           '<animateMotion dur="%s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1" keyTimes="0;1">'
           '<mpath xlink:href="#%s"/></animateMotion></circle>\n' % (T, pid))
     W('  <g><rect x="-140" y="98" width="140" height="304" fill="url(#sweep)"/>'
-      '<line x1="0" y1="98" x2="0" y2="402" stroke="#c8fff1" stroke-width="1.1" opacity="0.55"/>'
+      '<line x1="0" y1="98" x2="0" y2="402" stroke="#d3e6ff" stroke-width="1.1" opacity="0.55"/>'
       '<animateTransform attributeName="transform" type="translate" values="90,0;1440,0" dur="%s" '
       'repeatCount="indefinite" calcMode="linear"/></g>\n' % T)
     W('</g>\n')
     W('<rect x="22" y="98" width="1556" height="304" rx="7" fill="url(#crt)" pointer-events="none"/>\n')
-    W('<rect x="22" y="98" width="1556" height="304" rx="7" fill="none" stroke="#1f7563" stroke-width="1"/>\n')
+    W('<rect x="22" y="98" width="1556" height="304" rx="7" fill="none" stroke="#2a5688" stroke-width="1"/>\n')
     for d, cy, col, code, mus, kind, val, pid in CH:
         W('<text x="34" y="%d" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="%s">%s</text>' % (cy - 3, col, code))
         W('<text x="34" y="%d" font-size="9" letter-spacing="0.5" fill="%s">%s %s</text>\n' % (cy + 9, LABEL, mus, kind))
         W('<text x="1494" y="%d" text-anchor="end" font-size="10.5" fill="%s">%s</text>\n' % (cy + 3, col, val))
     W('<text x="36" y="392" font-size="10.5" letter-spacing="0.5" fill="%s">'
       '20 mV/div   500 ms/div   fs 2 kHz   TRIG auto</text>\n' % LABEL)
-    W('<line x1="1500" y1="110" x2="1500" y2="390" stroke="#15564a" stroke-width="1" opacity="0.7"/>\n')
+    W('<line x1="1500" y1="110" x2="1500" y2="390" stroke="#1e4270" stroke-width="1" opacity="0.7"/>\n')
     W('<text x="1538" y="132" text-anchor="middle" font-size="9" letter-spacing="1" fill="%s">DECODE</text>\n' % LABEL)
     W('<text x="1538" y="146" text-anchor="middle" font-size="8.5" letter-spacing="0.5" fill="%s">-&gt; GRIP</text>\n' % AMBER)
     W('<g transform="translate(1538,250)" stroke-linecap="round">\n')
@@ -215,24 +215,24 @@ def build_stack():
       'Python and PyTorch as EMG-style bursts, Go as a square wave, Svelte and TypeScript as a smooth sine, '
       'OpenVINO NPU as an INT8 quantization staircase, and SCSS web as a soft sine.</desc>\n')
     W('<defs>')
-    W('<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#06130f"/>'
-      '<stop offset="1" stop-color="#040d0b"/></linearGradient>')
+    W('<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#080f1e"/>'
+      '<stop offset="1" stop-color="#05080f"/></linearGradient>')
     W('<filter id="glow" x="-6%" y="-60%" width="112%" height="220%"><feGaussianBlur stdDeviation="1.15" result="b"/>'
       '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>')
     W('<pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">'
-      '<path d="M26 0H0V26" fill="none" stroke="#12463b" stroke-width="0.6" opacity="0.4"/></pattern>')
+      '<path d="M26 0H0V26" fill="none" stroke="#183a63" stroke-width="0.6" opacity="0.4"/></pattern>')
     W('<clipPath id="scr"><rect x="290" y="66" width="760" height="248" rx="4"/></clipPath>')
     W('</defs>\n')
-    W('<rect x="0" y="0" width="1200" height="330" rx="16" fill="#020908"/>\n')
-    W('<rect x="5" y="5" width="1190" height="320" rx="13" fill="url(#bg)" stroke="#13564a" stroke-width="1.2"/>\n')
+    W('<rect x="0" y="0" width="1200" height="330" rx="16" fill="#03060d"/>\n')
+    W('<rect x="5" y="5" width="1190" height="320" rx="13" fill="url(#bg)" stroke="#1c4066" stroke-width="1.2"/>\n')
     W('<text x="26" y="42" font-size="17" font-weight="700" letter-spacing="2" fill="%s">PROBE BANK</text>\n' % BRIGHT)
     W('<text x="176" y="42" font-size="12" letter-spacing="0.5" fill="%s">/ tech stack /  기술 스택</text>\n' % DIM)
     W('<text x="1174" y="42" text-anchor="end" font-size="11" letter-spacing="1" fill="%s">6 CHANNELS</text>\n' % LABEL)
-    W('<rect x="290" y="66" width="760" height="248" rx="4" fill="#03130f" stroke="#15564a" stroke-width="0.8"/>\n')
+    W('<rect x="290" y="66" width="760" height="248" rx="4" fill="#060e1d" stroke="#1e4270" stroke-width="0.8"/>\n')
     W('<g clip-path="url(#scr)">')
     W('<rect x="290" y="66" width="760" height="248" fill="url(#grid)"/>')
     for probe, tech, note, col, d, cy, sig in ROWS:
-        W('<line x1="330" y1="%d" x2="1030" y2="%d" stroke="#1c6d5b" stroke-width="0.6" stroke-dasharray="2 5" opacity="0.5"/>' % (cy, cy))
+        W('<line x1="330" y1="%d" x2="1030" y2="%d" stroke="#26497a" stroke-width="0.6" stroke-dasharray="2 5" opacity="0.5"/>' % (cy, cy))
     for i, (probe, tech, note, col, d, cy, sig) in enumerate(ROWS):
         dly = "%.2fs" % (i * 0.22)
         W('<path d="%s" fill="none" stroke="%s" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" '
@@ -241,7 +241,7 @@ def build_stack():
           % (d, col, T, dly))
     W('</g>\n')
     for probe, tech, note, col, d, cy, sig in ROWS:
-        W('<rect x="26" y="%d" width="36" height="20" rx="3" fill="#08201b" stroke="%s" stroke-width="0.9"/>' % (cy - 10, col))
+        W('<rect x="26" y="%d" width="36" height="20" rx="3" fill="#0b1d34" stroke="%s" stroke-width="0.9"/>' % (cy - 10, col))
         W('<text x="44" y="%d" text-anchor="middle" font-size="11" font-weight="700" fill="%s">%s</text>' % (cy + 4, col, probe))
         W('<text x="78" y="%d" font-size="14.5" font-weight="700" fill="%s">%s</text>' % (cy + 1, BRIGHT, tech))
         W('<text x="78" y="%d" font-size="9" letter-spacing="0.3" fill="%s">%s</text>' % (cy + 14, LABEL, note))
