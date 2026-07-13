@@ -1,20 +1,19 @@
 <div align="center">
 
-<img src="./assets/hero.svg?v=2" width="100%" alt="Hoijun Kim / 김회준 - biosignal ML researcher. A dark oscilloscope reading three forearm EMG channels and one video pose channel, decoded into a prosthetic grip.">
+<img src="./assets/hero.svg?v=3" width="100%" alt="Hoijun Kim / 김회준 - biosignal ML researcher. A dark oscilloscope reading three forearm EMG channels and one video pose channel, decoded into a prosthetic grip.">
 
 <br>
 
 **[ github ](https://github.com/hoijun-kim)** &nbsp;/&nbsp; **[ site ](https://hoit-chron.github.io)** &nbsp;/&nbsp; **[ email ](mailto:hoijun.kim00@gmail.com)**
 
+<br>
+
+**PhD candidate in biosignal ML & edge-AI**  -  turning EMG into prosthetic motion  
+바이오시그널 ML & 엣지 AI 박사과정  -  EMG 를 의수 동작으로
+
 </div>
 
-## whoami
-
-**EN** - Biosignal ML researcher decoding EMG (muscle) signals into motion for prosthetic-hand control. PhD candidate. I build production grade systems that run on the edge (NPU / OpenVINO), not just notebooks.
-
-**KO** - 근전도(EMG) 신호를 의수 제어 동작으로 디코딩하는 바이오시그널 ML 연구자. 박사과정. 노트북 실험이 아니라, 엣지(NPU)에서 실제로 도는 프로덕션급 시스템을 만듭니다.
-
-### now  /  지금 하는 일
+## focus  /  지금
 
 - **PhD thesis** - video + EMG auto-labeling for prosthetic-hand control  /  영상 + EMG 자동 라벨링으로 의수 제어  `defense 2026`
 - **Edge inference** - on-device models on Intel Lunar Lake NPU via OpenVINO  /  Lunar Lake NPU 온디바이스 추론
@@ -22,13 +21,15 @@
 
 <br>
 
-## acquisition channels  /  기술 스택
+## tech stack + proficiency  /  기술 스택
 
 <div align="center">
 
-<img src="./assets/stack.svg?v=2" width="100%" alt="Tech stack as an oscilloscope probe bank: Python and PyTorch as EMG bursts, Go as a square wave, Svelte and TypeScript as a sine, OpenVINO NPU as an INT8 staircase, SCSS web as a soft sine.">
+<img src="./assets/stack.svg?v=3" width="100%" alt="Tech stack as an oscilloscope probe bank with proficiency meters. Python is the main language, followed by PyTorch, Go, Svelte and TypeScript, OpenVINO NPU, and SCSS.">
 
 </div>
+
+<sub>Main language <b>Python</b>. Proficiency is self-rated.  /  메인 언어 Python. 숙련도는 자가 평가.</sub>
 
 <br>
 

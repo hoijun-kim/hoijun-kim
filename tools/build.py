@@ -197,23 +197,26 @@ def build_hero():
 # ================================== stack ===================================
 def build_stack():
     T = "4.5s"
+    WX0, WX1 = 340, 796   # sparkline x-range (narrower to make room for level meters)
+    # probe, tech, note, color, sparkline, cy, level(0-1), level-label, is_main
     ROWS = [
-        ("PY",  "Python",         "signal / ML",       C1,   emg(92, 13, [(0.35, 0.08, 0.9, 22), (0.7, 0.07, 0.9, 22)], 7, 340, 1020, 200, 1.1), 92,  "burst"),
-        ("PT",  "PyTorch",        "deep learning",     PT_C, emg(132, 13, [(0.25, 0.06, 0.9, 34), (0.55, 0.05, 0.9, 34), (0.82, 0.05, 0.9, 34)], 15, 340, 1020, 200, 1.1), 132, "dense"),
-        ("GO",  "Go",             "systems / desktop", C2,   square(172, 13, 340, 1020, 200), 172, "square"),
-        ("TS",  "Svelte + TS",    "reactive UI",       C4,   sine(212, 13, 3.0, 340, 1020, 200), 212, "sine"),
-        ("AI",  "OpenVINO / NPU", "edge inference",    AMBER, staircase(252, 13, 7, 340, 1020, 200), 252, "INT8"),
-        ("WEB", "SCSS / Web",     "frontend",          C3,   sine(292, 13, 2.2, 340, 1020, 200), 292, "sine"),
+        ("PY",  "Python",         "signal / ML",       C1,   emg(92, 12, [(0.35, 0.08, 0.9, 22), (0.7, 0.07, 0.9, 22)], 7, WX0, WX1, 160, 1.1), 92,  0.95, "primary", True),
+        ("PT",  "PyTorch",        "deep learning",     PT_C, emg(132, 12, [(0.25, 0.06, 0.9, 34), (0.55, 0.05, 0.9, 34), (0.82, 0.05, 0.9, 34)], 15, WX0, WX1, 160, 1.1), 132, 0.86, "core", False),
+        ("GO",  "Go",             "systems / desktop", C2,   square(172, 12, WX0, WX1, 160), 172, 0.68, "working", False),
+        ("TS",  "Svelte + TS",    "reactive UI",       C4,   sine(212, 12, 3.0, WX0, WX1, 160), 212, 0.80, "core", False),
+        ("AI",  "OpenVINO / NPU", "edge inference",    AMBER, staircase(252, 12, 7, WX0, WX1, 160), 252, 0.62, "applied", False),
+        ("WEB", "SCSS / Web",     "frontend",          C3,   sine(292, 12, 2.2, WX0, WX1, 160), 292, 0.58, "working", False),
     ]
+    SEGS, SEG_W, PITCH, MX = 10, 16, 21, 842   # level meter geometry
     s = io.StringIO(); W = s.write
     W('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
       'viewBox="0 0 1200 330" width="1200" height="330" role="img" aria-labelledby="ti de" '
       'preserveAspectRatio="xMidYMid meet" '
       'font-family="ui-monospace, SFMono-Regular, Menlo, \'Courier New\', \'Malgun Gothic\', monospace">\n')
-    W('<title id="ti">Tech stack - probe bank</title>\n')
-    W('<desc id="de">An oscilloscope probe bank where each technology is a channel with a mini signal: '
-      'Python and PyTorch as EMG-style bursts, Go as a square wave, Svelte and TypeScript as a smooth sine, '
-      'OpenVINO NPU as an INT8 quantization staircase, and SCSS web as a soft sine.</desc>\n')
+    W('<title id="ti">Tech stack and proficiency - probe bank</title>\n')
+    W('<desc id="de">A probe bank listing the stack as oscilloscope channels, each with a mini signal '
+      'that encodes its character (Go a square wave, OpenVINO NPU an INT8 staircase, and so on) and a '
+      'segmented proficiency meter. Python is marked as the main language.</desc>\n')
     W('<defs>')
     W('<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#080f1e"/>'
       '<stop offset="1" stop-color="#05080f"/></linearGradient>')
@@ -221,31 +224,49 @@ def build_stack():
       '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>')
     W('<pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">'
       '<path d="M26 0H0V26" fill="none" stroke="#183a63" stroke-width="0.6" opacity="0.4"/></pattern>')
-    W('<clipPath id="scr"><rect x="290" y="66" width="760" height="248" rx="4"/></clipPath>')
+    W('<clipPath id="scr"><rect x="300" y="66" width="500" height="248" rx="4"/></clipPath>')
     W('</defs>\n')
     W('<rect x="0" y="0" width="1200" height="330" rx="16" fill="#03060d"/>\n')
     W('<rect x="5" y="5" width="1190" height="320" rx="13" fill="url(#bg)" stroke="#1c4066" stroke-width="1.2"/>\n')
-    W('<text x="26" y="42" font-size="17" font-weight="700" letter-spacing="2" fill="%s">PROBE BANK</text>\n' % BRIGHT)
-    W('<text x="176" y="42" font-size="12" letter-spacing="0.5" fill="%s">/ tech stack /  기술 스택</text>\n' % DIM)
-    W('<text x="1174" y="42" text-anchor="end" font-size="11" letter-spacing="1" fill="%s">6 CHANNELS</text>\n' % LABEL)
-    W('<rect x="290" y="66" width="760" height="248" rx="4" fill="#060e1d" stroke="#1e4270" stroke-width="0.8"/>\n')
+    # header
+    W('<text x="26" y="40" font-size="17" font-weight="700" letter-spacing="2" fill="%s">PROBE BANK</text>\n' % BRIGHT)
+    W('<text x="176" y="40" font-size="12" letter-spacing="0.5" fill="%s">/ stack + proficiency / 기술 스택</text>\n' % DIM)
+    W('<text x="1092" y="40" text-anchor="end" font-size="11" letter-spacing="1" fill="%s">MAIN</text>' % LABEL)
+    W('<text x="1174" y="40" text-anchor="end" font-size="12" font-weight="700" letter-spacing="0.5" fill="%s">Python</text>\n' % AMBER)
+    # column captions
+    W('<text x="550" y="60" text-anchor="middle" font-size="8.5" letter-spacing="1.5" fill="%s">SIGNAL</text>' % LABEL)
+    W('<text x="%d" y="60" text-anchor="middle" font-size="8.5" letter-spacing="1.5" fill="%s">PROFICIENCY</text>\n'
+      % (MX + (SEGS * PITCH) // 2, LABEL))
+    # signal window
+    W('<rect x="300" y="66" width="500" height="248" rx="4" fill="#060e1d" stroke="#1e4270" stroke-width="0.8"/>\n')
     W('<g clip-path="url(#scr)">')
-    W('<rect x="290" y="66" width="760" height="248" fill="url(#grid)"/>')
-    for probe, tech, note, col, d, cy, sig in ROWS:
-        W('<line x1="330" y1="%d" x2="1030" y2="%d" stroke="#26497a" stroke-width="0.6" stroke-dasharray="2 5" opacity="0.5"/>' % (cy, cy))
-    for i, (probe, tech, note, col, d, cy, sig) in enumerate(ROWS):
+    W('<rect x="300" y="66" width="500" height="248" fill="url(#grid)"/>')
+    for probe, tech, note, col, d, cy, lvl, lword, main in ROWS:
+        W('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="#26497a" stroke-width="0.6" stroke-dasharray="2 5" opacity="0.5"/>' % (WX0, cy, WX1, cy))
+    for i, (probe, tech, note, col, d, cy, lvl, lword, main) in enumerate(ROWS):
         dly = "%.2fs" % (i * 0.22)
         W('<path d="%s" fill="none" stroke="%s" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" '
           'pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" filter="url(#glow)">'
           '<animate attributeName="stroke-dashoffset" values="1;0" dur="%s" begin="%s" repeatCount="indefinite" calcMode="linear"/></path>'
           % (d, col, T, dly))
     W('</g>\n')
-    for probe, tech, note, col, d, cy, sig in ROWS:
+    # rows: probe chip, tech, note, level meter, level word / MAIN pill
+    for probe, tech, note, col, d, cy, lvl, lword, main in ROWS:
         W('<rect x="26" y="%d" width="36" height="20" rx="3" fill="#0b1d34" stroke="%s" stroke-width="0.9"/>' % (cy - 10, col))
         W('<text x="44" y="%d" text-anchor="middle" font-size="11" font-weight="700" fill="%s">%s</text>' % (cy + 4, col, probe))
         W('<text x="78" y="%d" font-size="14.5" font-weight="700" fill="%s">%s</text>' % (cy + 1, BRIGHT, tech))
         W('<text x="78" y="%d" font-size="9" letter-spacing="0.3" fill="%s">%s</text>' % (cy + 14, LABEL, note))
-        W('<text x="1174" y="%d" text-anchor="end" font-size="10.5" letter-spacing="0.5" fill="%s">%s</text>\n' % (cy + 4, col, sig))
+        filled = int(round(lvl * SEGS))
+        for k in range(SEGS):
+            on = k < filled
+            fx = MX + k * PITCH
+            W('<rect x="%d" y="%d" width="%d" height="12" rx="1.5" fill="%s" opacity="%s"/>'
+              % (fx, cy - 6, SEG_W, col if on else "#24406a", "0.95" if on else "0.5"))
+        if main:
+            W('<rect x="1120" y="%d" width="52" height="17" rx="8.5" fill="none" stroke="%s" stroke-width="1"/>' % (cy - 8, AMBER))
+            W('<text x="1146" y="%d" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing="1" fill="%s">MAIN</text>\n' % (cy + 4, AMBER))
+        else:
+            W('<text x="1174" y="%d" text-anchor="end" font-size="10" letter-spacing="0.5" fill="%s">%s</text>\n' % (cy + 4, LABEL, lword))
     W('</svg>\n')
     return s.getvalue()
 
