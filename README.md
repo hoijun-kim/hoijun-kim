@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/hero.svg?v=6" width="100%" alt="Hoijun Kim - biosignal ML researcher. A dark oscilloscope reading three forearm EMG channels and one video pose channel, decoded into a prosthetic grip.">
+<img src="./assets/hero.svg?v=7" width="100%" alt="Hoijun Kim - biosignal ML researcher. A dark oscilloscope reading three forearm EMG channels and one video pose channel, decoded into a prosthetic grip.">
 
 <br>
 
@@ -24,7 +24,7 @@
 
 <div align="center">
 
-<img src="./assets/stack.svg?v=6" width="100%" alt="Tech stack as an oscilloscope probe bank. Each technology is a channel with a mini signal that encodes its character, plus a usage tag. Python is the main language.">
+<img src="./assets/stack.svg?v=7" width="100%" alt="Tech stack as an oscilloscope probe bank. Each technology is a channel with a mini signal that encodes its character, plus a usage tag. Python is the main language.">
 
 </div>
 
