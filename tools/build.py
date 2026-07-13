@@ -209,7 +209,7 @@ def build_stack():
     ]
     s = io.StringIO(); W = s.write
     W('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
-      'viewBox="0 0 1200 566" width="1200" height="566" role="img" aria-labelledby="ti de" '
+      'viewBox="0 0 1200 330" width="1200" height="330" role="img" aria-labelledby="ti de" '
       'preserveAspectRatio="xMidYMid meet" '
       'font-family="ui-monospace, SFMono-Regular, Menlo, \'Courier New\', \'Malgun Gothic\', monospace">\n')
     W('<title id="ti">Tech stack - probe bank</title>\n')
@@ -225,8 +225,8 @@ def build_stack():
       '<path d="M26 0H0V26" fill="none" stroke="#183a63" stroke-width="0.6" opacity="0.4"/></pattern>')
     W('<clipPath id="scr"><rect x="300" y="66" width="676" height="248" rx="4"/></clipPath>')
     W('</defs>\n')
-    W('<rect x="0" y="0" width="1200" height="566" rx="16" fill="#03060d"/>\n')
-    W('<rect x="5" y="5" width="1190" height="556" rx="13" fill="url(#bg)" stroke="#1c4066" stroke-width="1.2"/>\n')
+    W('<rect x="0" y="0" width="1200" height="330" rx="16" fill="#03060d"/>\n')
+    W('<rect x="5" y="5" width="1190" height="320" rx="13" fill="url(#bg)" stroke="#1c4066" stroke-width="1.2"/>\n')
     # header
     W('<text x="26" y="40" font-size="17" font-weight="700" letter-spacing="2" fill="%s">PROBE BANK</text>\n' % BRIGHT)
     W('<text x="176" y="40" font-size="12" letter-spacing="0.5" fill="%s">/ stack</text>\n' % DIM)
@@ -259,28 +259,6 @@ def build_stack():
             W('<text x="1147" y="%d" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing="1" fill="%s">MAIN</text>\n' % (cy + 4, AMBER))
         else:
             W('<text x="1174" y="%d" text-anchor="end" font-size="10.5" letter-spacing="0.5" fill="%s">%s</text>\n' % (cy + 4, DIM, cat))
-    # --- full stack grid (breadth, self-contained, no external badges) ---
-    W('<line x1="26" y1="338" x2="1174" y2="338" stroke="#1e4270" stroke-width="1" opacity="0.6"/>\n')
-    W('<text x="26" y="366" font-size="11" font-weight="700" letter-spacing="2" fill="%s">FULL STACK</text>\n' % LABEL)
-    CATS = [
-        ("Languages",     C1,    ["Python", "Go", "TypeScript", "C++", "SCSS", "Bash"]),
-        ("ML / DL",       C2,    ["PyTorch", "NumPy", "OpenCV", "scikit-learn", "Pandas"]),
-        ("Edge / Deploy", AMBER, ["OpenVINO", "ONNX", "NPU", "Docker"]),
-        ("Web / Desktop", C3,    ["Svelte", "SvelteKit", "Wails", "Vite", "Node"]),
-        ("Tooling",       C4,    ["Git", "Linux", "Conda", "VS Code"]),
-    ]
-    ry = 400
-    for label, ccol, techs in CATS:
-        W('<text x="26" y="%d" font-size="11" font-weight="700" fill="%s">%s</text>' % (ry + 4, ccol, label))
-        cx = 190
-        for tech in techs:
-            w = int(len(tech) * 7.0 + 20)
-            W('<rect x="%d" y="%d" width="%d" height="22" rx="5" fill="#0b1d34" stroke="%s" stroke-width="1" opacity="0.9"/>'
-              % (cx, ry - 7, w, ccol))
-            W('<text x="%d" y="%d" font-size="11" fill="#c8d8f0">%s</text>' % (cx + 10, ry + 8, tech))
-            cx += w + 8
-        W('\n')
-        ry += 33
     W('</svg>\n')
     return s.getvalue()
 

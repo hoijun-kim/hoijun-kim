@@ -24,7 +24,15 @@
 
 <div align="center">
 
-<img src="./assets/stack.svg?v=7" width="100%" alt="Tech stack as an oscilloscope probe bank. Each technology is a channel with a mini signal that encodes its character, plus a usage tag. Python is the main language.">
+<img src="./assets/stack.svg?v=8" width="100%" alt="Tech stack as an oscilloscope probe bank. Each technology is a channel with a mini signal that encodes its character, plus a usage tag. Python is the main language.">
+
+<br><br>
+
+<img src="https://skillicons.dev/icons?i=py,pytorch,sklearn,opencv,go,ts,svelte,vite,nodejs,sass,cpp,bash,docker,git,linux,vscode&theme=dark&perline=8" alt="Python, PyTorch, scikit-learn, OpenCV, Go, TypeScript, Svelte, Vite, Node, Sass, C++, Bash, Docker, Git, Linux, VS Code">
+
+<br>
+
+<sub>also &nbsp; OpenVINO &nbsp;/&nbsp; ONNX &nbsp;/&nbsp; NPU &nbsp;/&nbsp; Wails &nbsp;/&nbsp; NumPy &nbsp;/&nbsp; Pandas &nbsp;/&nbsp; Conda</sub>
 
 </div>
 
