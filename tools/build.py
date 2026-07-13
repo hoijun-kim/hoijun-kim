@@ -129,7 +129,7 @@ def build_hero():
     W('<rect x="5" y="5" width="1590" height="420" rx="15" fill="url(#bg)" stroke="#1c4066" stroke-width="1.3"/>\n')
     W('<g clip-path="url(#namewipe)">')
     W('<text x="36" y="55" font-size="23" font-weight="700" letter-spacing="1" fill="%s" filter="url(#glow)">'
-      'biosignal ML researcher</text>' % BRIGHT)
+      'Biosignal ML Researcher</text>' % BRIGHT)
     W('<text x="37" y="78" font-size="12.5" letter-spacing="0.5" fill="%s">'
       'decoding muscle signals into motion</text>' % DIM)
     W('</g>\n')
