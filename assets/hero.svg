@@ -12,7 +12,7 @@
 </defs>
 <rect x="0" y="0" width="1600" height="430" rx="18" fill="#03060d"/>
 <rect x="5" y="5" width="1590" height="420" rx="15" fill="url(#bg)" stroke="#1c4066" stroke-width="1.3"/>
-<g clip-path="url(#namewipe)"><text x="36" y="55" font-size="23" font-weight="700" letter-spacing="1" fill="#d8e8ff" filter="url(#glow)">biosignal ML researcher</text><text x="37" y="78" font-size="12.5" letter-spacing="0.5" fill="#6f8fc0">decoding muscle signals into motion  /  근육 신호를 동작으로</text></g>
+<g clip-path="url(#namewipe)"><text x="36" y="55" font-size="23" font-weight="700" letter-spacing="1" fill="#d8e8ff" filter="url(#glow)">biosignal ML researcher</text><text x="37" y="78" font-size="12.5" letter-spacing="0.5" fill="#6f8fc0">decoding muscle signals into motion</text></g>
 <text x="1498" y="39" font-size="13" font-weight="700" letter-spacing="1.5" fill="#ff6b6b">REC</text><circle cx="1552" cy="34.5" r="4.5" fill="#ff6b6b"><animate attributeName="opacity" values="1;1;0.12;0.12;1" keyTimes="0;0.45;0.5;0.55;1" dur="1.6s" repeatCount="indefinite"/></circle>
 <g text-anchor="end"><text x="1560" y="62" font-size="12" letter-spacing="0.5" fill="#4d6a99">OpenVINO / Lunar Lake NPU</text><text x="1560" y="80" font-size="12" letter-spacing="1" fill="#4d6a99">inference <tspan fill="#34c8f2" font-weight="700">LIVE</tspan></text></g>
 <rect x="22" y="98" width="1556" height="304" rx="7" fill="#060e1d"/>
