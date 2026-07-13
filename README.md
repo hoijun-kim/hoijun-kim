@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/hero.svg?v=3" width="100%" alt="Hoijun Kim / 김회준 - biosignal ML researcher. A dark oscilloscope reading three forearm EMG channels and one video pose channel, decoded into a prosthetic grip.">
+<img src="./assets/hero.svg?v=4" width="100%" alt="Hoijun Kim / 김회준 - biosignal ML researcher. A dark oscilloscope reading three forearm EMG channels and one video pose channel, decoded into a prosthetic grip.">
 
 <br>
 
@@ -25,7 +25,7 @@
 
 <div align="center">
 
-<img src="./assets/stack.svg?v=3" width="100%" alt="Tech stack as an oscilloscope probe bank with proficiency meters. Python is the main language, followed by PyTorch, Go, Svelte and TypeScript, OpenVINO NPU, and SCSS.">
+<img src="./assets/stack.svg?v=4" width="100%" alt="Tech stack as an oscilloscope probe bank with proficiency meters. Python is the main language, followed by PyTorch, Go, Svelte and TypeScript, OpenVINO NPU, and SCSS.">
 
 </div>
 
