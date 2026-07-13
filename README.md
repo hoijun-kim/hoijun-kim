@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/hero.svg" width="100%" alt="Hoijun Kim / 김회준 - biosignal ML researcher. A dark oscilloscope reading three forearm EMG channels and one video pose channel, decoded into a prosthetic grip.">
+<img src="./assets/hero.svg?v=2" width="100%" alt="Hoijun Kim / 김회준 - biosignal ML researcher. A dark oscilloscope reading three forearm EMG channels and one video pose channel, decoded into a prosthetic grip.">
 
 <br>
 
@@ -26,7 +26,7 @@
 
 <div align="center">
 
-<img src="./assets/stack.svg" width="100%" alt="Tech stack as an oscilloscope probe bank: Python and PyTorch as EMG bursts, Go as a square wave, Svelte and TypeScript as a sine, OpenVINO NPU as an INT8 staircase, SCSS web as a soft sine.">
+<img src="./assets/stack.svg?v=2" width="100%" alt="Tech stack as an oscilloscope probe bank: Python and PyTorch as EMG bursts, Go as a square wave, Svelte and TypeScript as a sine, OpenVINO NPU as an INT8 staircase, SCSS web as a soft sine.">
 
 </div>
 
@@ -90,9 +90,9 @@ Personal site / chronicle.
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=hoijun-kim&show_icons=true&hide_border=true&include_all_commits=true&bg_color=00000000&title_color=2ff0c4&icon_color=2ff0c4&text_color=8b949e&custom_title=signal%20readout" alt="GitHub stats">
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=hoijun-kim&show_icons=true&hide_border=true&include_all_commits=true&bg_color=00000000&title_color=4d9fff&icon_color=4d9fff&text_color=8b949e&custom_title=signal%20readout" alt="GitHub stats">
 &nbsp;&nbsp;
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hoijun-kim&layout=compact&hide_border=true&langs_count=8&bg_color=00000000&title_color=2ff0c4&text_color=8b949e" alt="Top languages">
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hoijun-kim&layout=compact&hide_border=true&langs_count=8&bg_color=00000000&title_color=4d9fff&text_color=8b949e" alt="Top languages">
 
 </div>
 
